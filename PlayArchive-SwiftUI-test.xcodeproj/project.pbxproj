@@ -15,6 +15,7 @@
 		470CD0322B3AA4F7000F0CA2 /* PlayArchive_SwiftUI_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CD0312B3AA4F7000F0CA2 /* PlayArchive_SwiftUI_testTests.swift */; };
 		470CD03C2B3AA4F7000F0CA2 /* PlayArchive_SwiftUI_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CD03B2B3AA4F7000F0CA2 /* PlayArchive_SwiftUI_testUITests.swift */; };
 		470CD03E2B3AA4F7000F0CA2 /* PlayArchive_SwiftUI_testUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CD03D2B3AA4F7000F0CA2 /* PlayArchive_SwiftUI_testUITestsLaunchTests.swift */; };
+		47E5CA792B4183CB0011A921 /* ArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E5CA782B4183CB0011A921 /* ArchiveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		470CD0372B3AA4F7000F0CA2 /* PlayArchive-SwiftUI-testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PlayArchive-SwiftUI-testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		470CD03B2B3AA4F7000F0CA2 /* PlayArchive_SwiftUI_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayArchive_SwiftUI_testUITests.swift; sourceTree = "<group>"; };
 		470CD03D2B3AA4F7000F0CA2 /* PlayArchive_SwiftUI_testUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayArchive_SwiftUI_testUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		47E5CA782B4183CB0011A921 /* ArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		470CD01B2B3AA4F5000F0CA2 /* PlayArchive-SwiftUI-test */ = {
 			isa = PBXGroup;
 			children = (
+				47E5CA702B417E420011A921 /* Core */,
 				470CD01C2B3AA4F5000F0CA2 /* PlayArchive_SwiftUI_testApp.swift */,
 				470CD01E2B3AA4F5000F0CA2 /* ContentView.swift */,
 				470CD0202B3AA4F5000F0CA2 /* Item.swift */,
@@ -132,6 +135,30 @@
 				470CD03D2B3AA4F7000F0CA2 /* PlayArchive_SwiftUI_testUITestsLaunchTests.swift */,
 			);
 			path = "PlayArchive-SwiftUI-testUITests";
+			sourceTree = "<group>";
+		};
+		47E5CA702B417E420011A921 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				47E5CA772B4183B50011A921 /* Archive */,
+				47E5CA742B41832F0011A921 /* MainTab */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		47E5CA742B41832F0011A921 /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MainTab;
+			sourceTree = "<group>";
+		};
+		47E5CA772B4183B50011A921 /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				47E5CA782B4183CB0011A921 /* ArchiveView.swift */,
+			);
+			path = Archive;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +293,7 @@
 			files = (
 				470CD01F2B3AA4F5000F0CA2 /* ContentView.swift in Sources */,
 				470CD0212B3AA4F5000F0CA2 /* Item.swift in Sources */,
+				47E5CA792B4183CB0011A921 /* ArchiveView.swift in Sources */,
 				470CD01D2B3AA4F5000F0CA2 /* PlayArchive_SwiftUI_testApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
