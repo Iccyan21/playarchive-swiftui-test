@@ -19,6 +19,7 @@
 		47E5CA7B2B4299ED0011A921 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E5CA7A2B4299ED0011A921 /* MainTabView.swift */; };
 		47E5CA7E2B429A110011A921 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E5CA7D2B429A110011A921 /* HomeView.swift */; };
 		47E5CA812B429AC40011A921 /* CreateArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E5CA802B429AC40011A921 /* CreateArchiveView.swift */; };
+		47E5CA832B43E67C0011A921 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E5CA822B43E67C0011A921 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		47E5CA7A2B4299ED0011A921 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		47E5CA7D2B429A110011A921 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		47E5CA802B429AC40011A921 /* CreateArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateArchiveView.swift; sourceTree = "<group>"; };
+		47E5CA822B43E67C0011A921 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			children = (
 				47E5CA702B417E420011A921 /* Core */,
 				470CD01C2B3AA4F5000F0CA2 /* PlayArchive_SwiftUI_testApp.swift */,
+				47E5CA822B43E67C0011A921 /* ImagePicker.swift */,
 				470CD01E2B3AA4F5000F0CA2 /* ContentView.swift */,
 				470CD0202B3AA4F5000F0CA2 /* Item.swift */,
 				470CD0222B3AA4F7000F0CA2 /* Assets.xcassets */,
@@ -321,6 +324,7 @@
 				47E5CA792B4183CB0011A921 /* ArchiveView.swift in Sources */,
 				47E5CA7E2B429A110011A921 /* HomeView.swift in Sources */,
 				470CD01D2B3AA4F5000F0CA2 /* PlayArchive_SwiftUI_testApp.swift in Sources */,
+				47E5CA832B43E67C0011A921 /* ImagePicker.swift in Sources */,
 				47E5CA812B429AC40011A921 /* CreateArchiveView.swift in Sources */,
 				47E5CA7B2B4299ED0011A921 /* MainTabView.swift in Sources */,
 			);

@@ -11,6 +11,9 @@ struct CreateArchiveView: View {
     @State private var archive = Archive(title: "", subtitle: "",context:"",isPrivate: false, movies:[])
     @State private var errorMessage: String? = nil
     @State private var isLoading: Bool = false
+    // ライブラリから写真を読み込む
+    @State var selectedImage = UIImage()
+    @State var showingImagePicker = false
     
     struct Archive {
         var title: String
@@ -42,9 +45,24 @@ struct CreateArchiveView: View {
                     MovieInputView(movie: $archive.movies[index])
                 }
                 
-                Button("動画を追加する") {
-                    // 動画を追加するロジック
+                Image(uiImage: self.selectedImage)
+                    .resizable()
+                    .frame(width: 300,height: 150)
+                
+                Button(action: {
+                    showingImagePicker = true
+                }){
+                    Text("写真を読み込む")
                 }
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(5)
+                .disabled(archive.movies.count >= 5)
+                // 最大5つまで制限
+                .sheet(isPresented: $showingImagePicker, content: {
+                    ImagePicker(selectedImage: self.$selectedImage)
+                })
                 Toggle("非公開にする",isOn: $archive.isPrivate)
                 
                 if let errorMessage = errorMessage{
@@ -57,6 +75,14 @@ struct CreateArchiveView: View {
                 .buttonStyle(.borderedProminent)
             }
             .padding()
+        }
+    }
+    private func addMovie() {
+        if archive.movies.count < 5 {
+            archive.movies.append(Movie(videotitle: "", video: nil))
+        } else {
+            // ユーザーに通知するための処理（例：アラートを表示）
+            print("動画は最大5つまでです。")
         }
     }
 }
@@ -75,6 +101,7 @@ struct MovieInputView: View {
         }
     }
 }
+
 
 #Preview {
     CreateArchiveView()
