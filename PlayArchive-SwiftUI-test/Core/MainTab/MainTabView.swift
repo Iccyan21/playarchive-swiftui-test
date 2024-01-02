@@ -27,7 +27,7 @@ struct MainTabView: View {
                 Image(systemName: "magnifyingglass")
             }.tag(1)
             
-            HomeView().onTapGesture {
+            CreateArchiveView().onTapGesture {
                 self.selectedIndex = 2
             }
             .tabItem {

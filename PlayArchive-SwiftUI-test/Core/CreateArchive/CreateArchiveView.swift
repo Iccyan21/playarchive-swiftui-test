@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct CreateArchiveView: View {
-    @State private var archive = Archive(title: "", subtitle: "",context:"",isPrivate: false, movies:[])
+    @State private var archive = Archive(title: "", subtitle: "", context: "", isPrivate: false, movies: [])
     @State private var errorMessage: String? = nil
     @State private var isLoading: Bool = false
-    // ライブラリから写真を読み込む
-    @State var selectedImage = UIImage()
-    @State var showingImagePicker = false
+    @State private var selectedImage = UIImage()
+    @State private var showingVideoPicker = false
+    @State private var selectedVideo: AVAsset? // 追加された動画用の状態変数
     
     struct Archive {
         var title: String
@@ -41,28 +42,22 @@ struct CreateArchiveView: View {
                     .frame(height: 200)
                     .border(Color.gray, width: 1)
                 Text("\(archive.context.count)/200文字")
-                ForEach(0..<archive.movies.count, id: \.self) { index in
-                    MovieInputView(movie: $archive.movies[index])
-                }
+                
                 
                 Image(uiImage: self.selectedImage)
                     .resizable()
                     .frame(width: 300,height: 150)
                 
                 Button(action: {
-                    showingImagePicker = true
-                }){
-                    Text("写真を読み込む")
+                    showingVideoPicker = true
+                }) {
+                    Text("動画を読み込む")
                 }
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(5)
-                .disabled(archive.movies.count >= 5)
-                // 最大5つまで制限
-                .sheet(isPresented: $showingImagePicker, content: {
-                    ImagePicker(selectedImage: self.$selectedImage)
+                // 省略: その他のビューコンポーネント
+                .sheet(isPresented: $showingVideoPicker, content: {
+                    VideoPicker(selectedVideo: $selectedVideo)
                 })
+
                 Toggle("非公開にする",isOn: $archive.isPrivate)
                 
                 if let errorMessage = errorMessage{
@@ -78,30 +73,16 @@ struct CreateArchiveView: View {
         }
     }
     private func addMovie() {
-        if archive.movies.count < 5 {
-            archive.movies.append(Movie(videotitle: "", video: nil))
-        } else {
-            // ユーザーに通知するための処理（例：アラートを表示）
-            print("動画は最大5つまでです。")
-        }
-    }
-}
-
-struct MovieInputView: View {
-    @Binding var movie: CreateArchiveView.Movie
-    
-    var body: some View{
-        VStack{
-            TextField("動画タイトル",text: $movie.videotitle)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            Button("動画を削除する"){
-                //　削除ロジック
+        if let video = selectedVideo, archive.movies.count < 5 {
+            // AVAssetからURLを取得し、Movie構造体を作成して追加
+            if let videoURL = (video as? AVURLAsset)?.url {
+                archive.movies.append(Movie(videotitle: "新しい動画", video: videoURL))
             }
+        } else {
+            // エラーメッセージや制限に関する処理
         }
     }
 }
-
 
 #Preview {
     CreateArchiveView()

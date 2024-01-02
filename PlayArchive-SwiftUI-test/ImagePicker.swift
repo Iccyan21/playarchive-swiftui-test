@@ -7,44 +7,48 @@
 
 import SwiftUI
 import PhotosUI
-// UIKitで見た目を作るもの
-struct ImagePicker: UIViewControllerRepresentable {
-    
-    @Binding var selectedImage: UIImage
+import AVFoundation
+
+struct VideoPicker: UIViewControllerRepresentable {
+    @Binding var selectedVideo: AVAsset?
     
     func makeUIViewController(context: Context) -> PHPickerViewController {
         var configuration = PHPickerConfiguration()
-        configuration.filter = .images
+        configuration.filter = .videos // 動画を選択するために変更
         let picker = PHPickerViewController(configuration: configuration)
         picker.delegate = context.coordinator
         return picker
     }
+    
     func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
-        
-    }
-    func makeCoordinator() -> Coordinator {
-        return Coordinator(parent: self)
     }
     
-    // 画像を取得する関数
-    class Coordinator: PHPickerViewControllerDelegate {
-        let parent: ImagePicker
+    func makeCoordinator() -> Coordinator {
+        Coordinator(parent: self)
+    }
+    
+    class Coordinator: NSObject, PHPickerViewControllerDelegate {
+        let parent: VideoPicker
         
-        init(parent: ImagePicker) {
+        init(parent: VideoPicker) {
             self.parent = parent
         }
         
-        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]){
+        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
             picker.dismiss(animated: true)
             
-            for image in results {
-                image.itemProvider.loadObject(ofClass: UIImage.self, completionHandler: {(image,error) in
-                    if let image = image as? UIImage {
-                        self.parent.selectedImage = image
-                    }
-                })
+            guard let result = results.first, result.itemProvider.hasItemConformingToTypeIdentifier(UTType.movie.identifier) else { return }
+            
+            result.itemProvider.loadFileRepresentation(forTypeIdentifier: UTType.movie.identifier) { url, error in
+                guard let url = url, error == nil else { return }
+                
+                // AVAssetを使用して動画を読み込む
+                let asset = AVAsset(url: url)
+                DispatchQueue.main.async {
+                    self.parent.selectedVideo = asset
+                }
             }
         }
     }
-    
 }
+

@@ -25,7 +25,7 @@ struct PlayArchive_SwiftUI_testApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
         }
         .modelContainer(sharedModelContainer)
     }

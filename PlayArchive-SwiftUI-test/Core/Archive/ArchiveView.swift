@@ -42,7 +42,7 @@ struct ArchiveView: View {
             
             Spacer()
             
-            NavigationLink(destination: ContentView(), label: {
+            NavigationLink(destination: CreateArchiveView(), label: {
                 Text("New")
                     .padding()
                     .background(Color.blue)
