@@ -20,6 +20,7 @@
 		47E5CA7E2B429A110011A921 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E5CA7D2B429A110011A921 /* HomeView.swift */; };
 		47E5CA812B429AC40011A921 /* CreateArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E5CA802B429AC40011A921 /* CreateArchiveView.swift */; };
 		47E5CA832B43E67C0011A921 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E5CA822B43E67C0011A921 /* ImagePicker.swift */; };
+		47E5CA8E2B455CC40011A921 /* ArchiveDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E5CA8D2B455CC40011A921 /* ArchiveDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		47E5CA7D2B429A110011A921 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		47E5CA802B429AC40011A921 /* CreateArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateArchiveView.swift; sourceTree = "<group>"; };
 		47E5CA822B43E67C0011A921 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		47E5CA8D2B455CC40011A921 /* ArchiveDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 		47E5CA702B417E420011A921 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				47E5CA8C2B455CA80011A921 /* ArchiveDetail */,
 				47E5CA7F2B429AAD0011A921 /* CreateArchive */,
 				47E5CA7C2B429A060011A921 /* Home */,
 				47E5CA772B4183B50011A921 /* Archive */,
@@ -187,6 +190,14 @@
 				47E5CA802B429AC40011A921 /* CreateArchiveView.swift */,
 			);
 			path = CreateArchive;
+			sourceTree = "<group>";
+		};
+		47E5CA8C2B455CA80011A921 /* ArchiveDetail */ = {
+			isa = PBXGroup;
+			children = (
+				47E5CA8D2B455CC40011A921 /* ArchiveDetailView.swift */,
+			);
+			path = ArchiveDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47E5CA8E2B455CC40011A921 /* ArchiveDetailView.swift in Sources */,
 				470CD01F2B3AA4F5000F0CA2 /* ContentView.swift in Sources */,
 				470CD0212B3AA4F5000F0CA2 /* Item.swift in Sources */,
 				47E5CA792B4183CB0011A921 /* ArchiveView.swift in Sources */,
